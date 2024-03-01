@@ -1,7 +1,7 @@
 import { db } from "../../../../../lib/db"
-import {v4 as uuidv4} from "uuid"
+// import {v4 as uuidv4} from "uuid"
 import {NextResponse} from "next/server"
-export const POST = async(req) => {
+export const POST = async(req:Request) => {
     const data = await req.json()
     console.log(data);
 
