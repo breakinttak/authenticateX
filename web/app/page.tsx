@@ -1,14 +1,9 @@
 "use client"
 import { SignUpForm } from "@/components/dialog/sign-up-form";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogDescription, DialogHeader } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { DialogTitle, DialogTrigger } from "@radix-ui/react-dialog";
-import { Eye } from "lucide-react";
-import Image from "next/image";
 import { useEffect, useState } from "react";
-
+import { Navbar } from "@/_components/Navbar";
 
 
 
@@ -27,6 +22,7 @@ export default function Home() {
   
   return (
       <main>
+        <Navbar />
         <div className="flex flex-1 items-center justify-center w-full h-[80vh] space-x-[50px]">
           <div className={cn("p-[20px] text-xl py-[50px]  group rounded-md border-[3px] hover:border-zinc-800 transition-all border-zinc-900")}  >
               <p className={cn("text-zinc-800 dark:text-zinc-100 max-w-[350px] text-center")}>

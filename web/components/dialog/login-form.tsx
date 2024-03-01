@@ -2,10 +2,20 @@
 import { Dialog,DialogTrigger,DialogContent,DialogTitle,DialogHeader } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Eye , User } from "lucide-react"
 export const LoginForm = () => {
     const [password,setPassword] = useState("password")
+    const [mounted,setMounted] = useState(false)
+
+    useEffect(()=>{
+      setMounted(true)
+    },[])
+
+    if(!mounted){
+      return null
+    }
+
     return(
         <Dialog>
         <DialogTrigger className="w-full max-w-[350px]">

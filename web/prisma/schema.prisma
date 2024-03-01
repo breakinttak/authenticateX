@@ -16,6 +16,9 @@ datasource db {
 model UserDev{
   id      Int      @id @default(autoincrement())
   name String
+  email String
+  password String
+  imageUrl String?
   Useruser UserUser[]
   UserDevId Int? @unique
 }
