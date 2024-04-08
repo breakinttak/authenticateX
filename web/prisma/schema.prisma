@@ -19,8 +19,18 @@ model UserDev{
   email String
   password String
   imageUrl String?
-  Useruser UserUser[]
   UserDevId Int? @unique
+  Apps App[]
+  jwtToken String?
+
+}
+
+model App{
+  id Int  @default(autoincrement())
+  name String
+  Useruser UserUser[]
+  app UserDev @relation(fields:[id],references:[UserDevId])
+  AppId Int @unique
 }
 
 model UserUser{
@@ -28,8 +38,9 @@ model UserUser{
   name String
   email String 
   password String
-  userDev UserDev @relation(fields:[id],references:[UserDevId])
+  app App @relation(fields:[id],references:[AppId])
   organizations Organizations[]
+  jwtToken String?
   UserUserId Int? @unique
 }
 

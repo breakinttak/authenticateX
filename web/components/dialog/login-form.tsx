@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useEffect, useState } from "react"
 import { Eye , User } from "lucide-react"
+import { useRouter } from "next/navigation"
 export const LoginForm = () => {
     const [password,setPassword] = useState("password")
     const [mounted,setMounted] = useState(false)
@@ -15,7 +16,10 @@ export const LoginForm = () => {
     if(!mounted){
       return null
     }
-
+    const router = useRouter()
+    const onLogin  = () => {
+      router.push("/v1")
+    }
     return(
         <Dialog>
         <DialogTrigger className="w-full max-w-[350px]">
@@ -46,7 +50,9 @@ export const LoginForm = () => {
           setPassword("password")
          }} />
         
-        <Button className="w-full bg-green-700 group-hover:bg-green-600 text-zinc-800 mt-[20px] hover:bg-green-600 hover:text-white" >
+        <Button className="w-full bg-green-700 group-hover:bg-green-600 text-zinc-800 mt-[20px] hover:bg-green-600 hover:text-white" 
+        onClick={onLogin}
+        >
             Login </Button>
         </DialogContent>
        </Dialog>
