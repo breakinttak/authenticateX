@@ -5,7 +5,10 @@ import { Input } from "@/components/ui/input"
 import { useEffect, useState } from "react"
 import { Eye , User } from "lucide-react"
 import { useRouter } from "next/navigation"
+
 export const LoginForm = () => {
+  const router = useRouter()
+
     const [password,setPassword] = useState("password")
     const [mounted,setMounted] = useState(false)
 
@@ -17,8 +20,9 @@ export const LoginForm = () => {
       return null
     }
     
-    const router = useRouter()
+
     const onLogin  = async () => {
+  
       const name = (document.getElementById("name") as HTMLInputElement).value
       const password = (document.getElementById("password") as HTMLInputElement).value
       const res = await fetch ("/api/login",{
@@ -34,7 +38,7 @@ export const LoginForm = () => {
       else{
         const a = window.localStorage.setItem("data",JSON.stringify(await res))
         console.log(a);
-        
+
         router.push("/v1")
       }
       

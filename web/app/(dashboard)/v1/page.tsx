@@ -8,7 +8,7 @@ export default function Page(){
     const name = "ashish"
     const image = "imageurl"
     const email = "15678ashish@"
-    const apps = [<User />,<User2/>]
+    // const apps = [<User />,<User2/>]
     const currApp = "new1"
     return(
         <>
@@ -28,13 +28,13 @@ export default function Page(){
                             <div className="py-[4px] px-[2px] rounded-xl hover:text-zinc-400 cursor-pointer">
                                 <Plus className="ml-[10px]    " />
                             </div>
-                            {apps.map((app)=>{
+                            {/* {apps.map((app)=>{
                                 return(
                                     <div key={app.key}>
                                     <div className="pt-[30px] ml-[10px] ">{app}</div>
                                     </div>
                                 )
-                            })}
+                            })} */}
                         </div>
                         <div className="flex flex-col right-0 w-full h-full">
                             <div className="ml-[10px]">
