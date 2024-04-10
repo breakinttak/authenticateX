@@ -30,9 +30,9 @@ export default function Page(){
                             </div>
                             {apps.map((app)=>{
                                 return(
-                                    <>
+                                    <div key={app.key}>
                                     <div className="pt-[30px] ml-[10px] ">{app}</div>
-                                    </>
+                                    </div>
                                 )
                             })}
                         </div>

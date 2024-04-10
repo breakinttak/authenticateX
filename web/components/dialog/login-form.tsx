@@ -16,9 +16,28 @@ export const LoginForm = () => {
     if(!mounted){
       return null
     }
+    
     const router = useRouter()
-    const onLogin  = () => {
-      router.push("/v1")
+    const onLogin  = async () => {
+      const name = (document.getElementById("name") as HTMLInputElement).value
+      const password = (document.getElementById("password") as HTMLInputElement).value
+      const res = await fetch ("/api/login",{
+        method:"POST",
+        body:JSON.stringify({name:name,password:password})
+      })
+      console.log(await res.json());
+      
+      if(res.status == 400){
+        console.log("Bad req");
+        document.getElementById("p")!.innerHTML = "Error  : Wrong username or password"
+      }
+      else{
+        const a = window.localStorage.setItem("data",JSON.stringify(await res))
+        console.log(a);
+        
+        router.push("/v1")
+      }
+      
     }
     return(
         <Dialog>
@@ -38,22 +57,23 @@ export const LoginForm = () => {
         <p className="mt-[20px]"> Enter your name or email</p>
         <Input placeholder="Enter your name or email" 
         className="invalid:text-red-500
-        invalid:border-red-500 border-2"
+        invalid:border-red-500 border-2" id="name"
         />
 
  
         <p className="mt-[20px]">Enter your Password</p>
         <Input type={password} placeholder="Enter your Password" className="invalid:text-red-500
-         invalid:border-red-500 border-2 " /> 
+         invalid:border-red-500 border-2 " id="password" /> 
          <Eye  className="absolute right-8 cursor-pointer bottom-[7rem]" onClick={()=>{
           if(password=="password") setPassword("text")
-          setPassword("password")
+          else setPassword("password")
          }} />
         
         <Button className="w-full bg-green-700 group-hover:bg-green-600 text-zinc-800 mt-[20px] hover:bg-green-600 hover:text-white" 
         onClick={onLogin}
         >
             Login </Button>
+            <p className="text-red-500" id="p"></p>
         </DialogContent>
        </Dialog>
     )
