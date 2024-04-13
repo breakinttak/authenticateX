@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { Navbar } from "@/_components/Navbar";
+import { HeroHighlight } from "./(docs)/docs/(getting-started)/_components/hero-high";
 
 
 
@@ -21,10 +22,11 @@ export default function Home() {
   }
   
   return (
+    <HeroHighlight>
       <main>
         <Navbar />
         <div className="flex flex-1 items-center justify-center w-full h-[80vh] space-x-[50px]">
-          <div className={cn("p-[20px] text-xl py-[50px]  group rounded-md border-[3px] hover:border-zinc-800 transition-all border-zinc-900")}  >
+          <div className={cn("p-[20px] text-xl py-[50px]  group rounded-md border-[3px] hover:border-zinc-800 transition-all border-zinc-900 dark:bg-[#0c0c0c] ")}  >
               <p className={cn("text-zinc-800 dark:text-zinc-100 max-w-[350px] text-center")}>
                 Create a new project with us which will enhance your project like never ?
               </p>
@@ -33,7 +35,7 @@ export default function Home() {
               <SignUpForm/>
             
           </div>
-          <div className={cn("p-[20px] py-[40px] text-xl  hover:border-zinc-800 transition-all group rounded-md  border-[3px] border-zinc-900")}  >
+          <div className={cn("p-[20px] py-[40px] text-xl  hover:border-zinc-800 transition-all group rounded-md  border-[3px] border-zinc-900 dark:bg-[#0c0c0c] ")}  >
               <p className={cn("text-zinc-800 dark:text-zinc-100 max-w-[350px] text-center ")}>
               Checkout our latest docs for all latest information about everything
               </p>
@@ -45,5 +47,6 @@ export default function Home() {
           <div></div>
         </div>
       </main>
+      </HeroHighlight>
   );
 }

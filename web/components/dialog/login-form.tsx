@@ -62,12 +62,21 @@ export const LoginForm = () => {
         <Input placeholder="Enter your name or email" 
         className="invalid:text-red-500
         invalid:border-red-500 border-2" id="name"
+        
+        onChange={()=>{
+          document.getElementById("p")!.innerHTML = ""
+        }}
         />
 
  
         <p className="mt-[20px]">Enter your Password</p>
         <Input type={password} placeholder="Enter your Password" className="invalid:text-red-500
-         invalid:border-red-500 border-2 " id="password" /> 
+         invalid:border-red-500 border-2 " id="password"
+         
+        onChange={()=>{
+          document.getElementById("p")!.innerHTML = ""
+        }}
+         /> 
          <Eye  className="absolute right-8 cursor-pointer bottom-[7rem]" onClick={()=>{
           if(password=="password") setPassword("text")
           else setPassword("password")
