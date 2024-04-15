@@ -1,8 +1,10 @@
 "use client"
+import NewApp from "@/_components/newapp"
 import Logout from "@/components/logout/logout"
 import { DropdownMenu } from "@/components/ui/dropdown-menu"
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
 import { AppWindow, Orbit, Plus, User, User2, UserPlus } from "lucide-react"
+import { useState } from "react"
 
 export default function Page(){
     const name = "ashish"
@@ -25,8 +27,9 @@ export default function Page(){
                     <div className="flex flex-2/3 items center justify-center w-full ">
                         {/* icons start here */ }
                         <div className="flex flex-col bg-zinc-800 left-0 ml-0 w-[72px]  h-[522px]">
-                            <div className="py-[4px] px-[2px] rounded-xl hover:text-zinc-400 cursor-pointer">
-                                <Plus className="ml-[10px]    " />
+                            <div 
+                            className="py-[4px] px-[2px] rounded-xl hover:text-zinc-400 cursor-pointer">
+                                <NewApp />
                             </div>
                             {/* {apps.map((app)=>{
                                 return(

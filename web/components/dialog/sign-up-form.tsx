@@ -1,8 +1,9 @@
-import { Dialog,DialogTrigger,DialogContent,DialogTitle,DialogHeader } from "@/components/ui/dialog"
+import {  Dialog,DialogTrigger,DialogContent,DialogTitle,DialogHeader } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import { Eye } from "lucide-react"
+import { useToast } from "../ui/use-toast"
 export const SignUpForm = () => {
     const [dot,setDot] = useState(false)
 
@@ -18,6 +19,7 @@ export const SignUpForm = () => {
   
 
     async function SignUP(){
+      const {toast} = useToast()
       const text = document.getElementById("textContent")!
       const name = (document.getElementById("Name") as HTMLInputElement ).value 
       const password = (document.getElementById("Password") as HTMLInputElement ).value 
@@ -43,10 +45,14 @@ export const SignUpForm = () => {
 
       console.log(res);
       text.innerHTML = "Account created succesfully !!! , Please Login"
+      toast({
+        title:"Success",
+        description:"Succes account creatuib"
+      })      
     }
 
     return(
-        <Dialog>
+        <Dialog >
         <DialogTrigger className="w-full max-w-[350px]">
         <Button variant={"test"} className="mt-[20px] group-hover:bg-zinc-700 
         group-hover:text-white text-zinc-300 p-[20px] w-full">Get started Now</Button>

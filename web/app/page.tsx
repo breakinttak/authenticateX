@@ -32,7 +32,7 @@ export default function Home() {
               </p>
 
               {/* get started dialog starts here */}
-              <SignUpForm/>
+              <SignUpForm  />
             
           </div>
           <div className={cn("p-[20px] py-[40px] text-xl  hover:border-zinc-800 transition-all group rounded-md  border-[3px] border-zinc-900 dark:bg-[#0c0c0c] ")}  >
