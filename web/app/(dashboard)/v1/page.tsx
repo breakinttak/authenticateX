@@ -2,21 +2,39 @@
 import NewApp from "@/_components/newapp"
 import Logout from "@/components/logout/logout"
 import { DropdownMenu } from "@/components/ui/dropdown-menu"
+import { UploadButton } from "@/utils/uploadthing"
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
 import { AppWindow, Orbit, Plus, User, User2, UserPlus } from "lucide-react"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 export default function Page(){
-    const name = "ashish"
-    const image = "imageurl"
-    const email = "15678ashish@"
-    // const apps = [<User />,<User2/>]
-    const currApp = "new1"
+    
+    const email = window.localStorage.getItem("email")
+    const name = window.localStorage.getItem("name")
+    // console.log(name);
+    
+    const router = useRouter()
+    
+    if(!email || !name){
+        router.push("/")
+        return null
+    }
+
     return(
         <>
             <div className="w-full h-[70px] flex items-center  bg-zinc-800 ">
                 <p className="left-0 p-[20px] text-2xl">{email}</p>
-                
+                    {/* <UploadButton 
+                    onClientUploadComplete={()=>{
+                        console.log("upload complete");
+                        
+                    }}
+                    onUploadError={()=>{
+                        alert("Upload error")
+                    }}
+                    endpoint="imageUploader"
+                    />             */}
                 <p className="right-0 lg:ml-[75%] md:ml-[50%]">
                     <Logout / >
                 </p>
@@ -29,7 +47,14 @@ export default function Page(){
                         <div className="flex flex-col bg-zinc-800 left-0 ml-0 w-[72px]  h-[522px]">
                             <div 
                             className="py-[4px] px-[2px] rounded-xl hover:text-zinc-400 cursor-pointer">
-                                <NewApp />
+                                <button 
+                                onClick={()=>{
+                                    router.push("/v1/newApp")
+                                }}
+                                className="w-full  h-[40px] flex bg-gray-800 rounded-xl border-gray-700 hover:border-gray-600  text-gray-400 hover:text-gray-200 border-2 justify-center items-center">
+                                <Plus className="mr-[4px]" />
+                                </button>
+                                {/* <NewApp /> */}
                             </div>
                             {/* {apps.map((app)=>{
                                 return(

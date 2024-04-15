@@ -19,7 +19,7 @@ export const SignUpForm = () => {
   
 
     async function SignUP(){
-      const {toast} = useToast()
+      // const {toast} = useToast()
       const text = document.getElementById("textContent")!
       const name = (document.getElementById("Name") as HTMLInputElement ).value 
       const password = (document.getElementById("Password") as HTMLInputElement ).value 
@@ -45,10 +45,10 @@ export const SignUpForm = () => {
 
       console.log(res);
       text.innerHTML = "Account created succesfully !!! , Please Login"
-      toast({
-        title:"Success",
-        description:"Succes account creatuib"
-      })      
+      // toast({
+      //   title:"Success",
+      //   description:"Succes account creatuib"
+      // })      
     }
 
     return(

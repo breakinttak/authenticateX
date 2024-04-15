@@ -29,18 +29,18 @@ export const LoginForm = () => {
         method:"POST",
         body:JSON.stringify({name:name,password:password})
       })
-      console.log(await res.json());
-      
+      const user = await res.json()
+      console.log(user );
+            
       if(res.status == 400){
         console.log("Bad req");
         document.getElementById("p")!.innerHTML = "Error  : Wrong username or password"
-      }
-      else{
-        const a = window.localStorage.setItem("data",JSON.stringify(await res))
-        console.log(a);
-
+      }        
+      window.localStorage.setItem("userId",user.UserDevId)
+      window.localStorage.setItem("name",user.name)
+      window.localStorage.setItem("email",user.email)
+      
         router.push("/v1")
-      }
       
     }
     return(

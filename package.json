@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "app": "^0.1.0"
+    "@uploadthing/react": "^6.4.4",
+    "app": "^0.1.0",
+    "uploadthing": "^6.9.0"
   }
 }

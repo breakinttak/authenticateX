@@ -22,7 +22,10 @@ async function POST(req:Request){
     if (res == (undefined || null )){
         return NextResponse.json("Error",{status:400})
     }
-    cookies().set("data", JSON.stringify(res))
+    cookies().set("name", await res.name)
+    cookies().set("userId",res.UserDevId as string)
+    cookies().set("email",res.email)
+
     return NextResponse.json(res);
 }
 
