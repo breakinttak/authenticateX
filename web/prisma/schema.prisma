@@ -31,6 +31,8 @@ model App{
   Useruser UserUser[]
   app UserDev @relation(fields:[AppId],references:[UserDevId])
   AppId String @unique
+  image String
+  AppUrl String?
 }
 
 model UserUser{
