@@ -1,24 +1,25 @@
 "use client"
-
+import {Input} from "@/components/ui/input"
 import { useEffect, useState } from "react"
 
 
 export default function Page(){
 
-    const [mounted,setMounted] = useState(false)
+    // const [mounted,setMounted] = useState(false)
 
-    useEffect(()=>{
-        setMounted(true)
-    })
+    // useEffect(()=>{
+    //     setMounted(true)
+    // })
 
-    if (!mounted) return null
+    // if (!mounted) return null
 
     return (
         <>
-        <main className="w-full h-full flex items-center justify-center ">
-                <image 
-                src="https://picsum.photos/id/1/200/300"
-                />
+        <main className="w-full h-full flex items-center justify-center  ">
+                <div className=" p-[200px]  top-4 right-4">
+                    <p>Enter your app's name</p>
+                    <Input />
+                </div>
         </main>
         </>
     )
