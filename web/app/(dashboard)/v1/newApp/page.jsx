@@ -17,7 +17,7 @@ export default function Page(){
         <>
         <main className="w-full h-full flex items-center justify-center  ">
                 <div className=" p-[200px]  top-4 right-4">
-                    <p>Enter your app's name</p>
+                    <p>Enter your app &apos s name</p>
                     <Input />
                 </div>
         </main>
