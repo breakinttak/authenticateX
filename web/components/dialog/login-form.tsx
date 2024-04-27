@@ -36,11 +36,13 @@ export const LoginForm = () => {
         console.log("Bad req");
         document.getElementById("p")!.innerHTML = "Error  : Wrong username or password"
       }        
-      window.localStorage.setItem("userId",user.UserDevId)
-      window.localStorage.setItem("name",user.name)
-      window.localStorage.setItem("email",user.email)
-      
-        router.push("/v1")
+      else{
+        window.localStorage.setItem("userId",user.UserDevId)
+        // window.localStorage.setItem("name",user.name)
+        // window.localStorage.setItem("email",user.email)
+        
+          router.push("/v1")
+      }
       
     }
     return(

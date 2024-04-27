@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <HeroHighlight>
       <main>
-        <Navbar />
+        <Navbar showlogin={true} big/>
         <div className="flex flex-1 items-center justify-center w-full h-[80vh] space-x-[50px]">
           <div className={cn("p-[20px] text-xl py-[50px]  group rounded-md border-[3px] hover:border-zinc-800 transition-all border-zinc-900 dark:bg-[#0c0c0c] ")}  >
               <p className={cn("text-zinc-800 dark:text-zinc-100 max-w-[350px] text-center")}>
@@ -32,14 +32,14 @@ export default function Home() {
               </p>
 
               {/* get started dialog starts here */}
-              <SignUpForm  />
+              <SignUpForm  className = "bg-zinc-600" />
             
           </div>
-          <div className={cn("p-[20px] py-[40px] text-xl  hover:border-zinc-800 transition-all group rounded-md  border-[3px] border-zinc-900 dark:bg-[#0c0c0c] ")}  >
+          <div className={cn("p-[20px] py-[40px] text-xl bg-zinc-600 hover:border-zinc-800 transition-all group rounded-md  border-[3px] border-zinc-900 dark:bg-[#0c0c0c] ")}  >
               <p className={cn("text-zinc-800 dark:text-zinc-100 max-w-[350px] text-center ")}>
               Checkout our latest docs for all latest information about everything
               </p>
-              <Button variant={"test"} className="mt-[20px] group-hover:bg-zinc-700 
+              <Button className="mt-[20px] group-hover:bg-zinc-700 bg-zinc-600
               group-hover:text-white text-zinc-300 p-[20px] w-full mb-[20px]">Docs </Button>
           </div>
 

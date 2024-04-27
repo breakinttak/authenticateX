@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
  
-
+/* 
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -59,24 +59,4 @@
   body {
     @apply bg-background text-foreground;
   }
-}
-.navbar{
-  width: 100%;
-  background-color: #181616;
-  display: flex;
-  flex-direction: row;
-  justify-content:flex-start;
-  align-items: center;
-  text-emphasis-color: red;
-  color:white;
-  padding:20px;
-  font-size: 1.5rem;
-  transition: 1s;
-  font-weight: 700;
-  position: sticky;
-}
-
-.navbar div{
-  padding:20px;
-  cursor: pointer;
-}
+} */

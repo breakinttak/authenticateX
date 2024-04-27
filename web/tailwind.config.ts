@@ -15,7 +15,8 @@ const config = {
     './app/(dashboard)/v1/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}'
+    './components/**/*.{ts,tsx}',
+    '_components/**/*.{ts,tsx,js,jsx}'
 	],
   prefix: "",
   theme: {

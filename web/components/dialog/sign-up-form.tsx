@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import { Eye } from "lucide-react"
 import { useToast } from "../ui/use-toast"
-export const SignUpForm = () => {
+export const SignUpForm = ({className}:{className:string}) => {
     const [dot,setDot] = useState(false)
 
     function generateAlphanumericCode(length:number) {
@@ -52,10 +52,11 @@ export const SignUpForm = () => {
     }
 
     return(
+        <>
         <Dialog >
-        <DialogTrigger className="w-full max-w-[350px]">
-        <Button variant={"test"} className="mt-[20px] group-hover:bg-zinc-700 
-        group-hover:text-white text-zinc-300 p-[20px] w-full">Get started Now</Button>
+        <DialogTrigger className={`w-full max-w-[350px] `}>
+        <Button  className={` group-hover:bg-zinc-700 
+        group-hover:text-white text-zinc-300 w-full ${className} mt-[20px]`}>Get started Now</Button>
         </DialogTrigger>
         <DialogContent className="group">
           <DialogHeader>
@@ -89,5 +90,6 @@ export const SignUpForm = () => {
         <p className="textContent text-rose-300" id="textContent"></p>
         </DialogContent>
        </Dialog>
+        </>
     )
 }
