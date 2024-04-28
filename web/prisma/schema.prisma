@@ -33,6 +33,7 @@ model App{
   AppId String @unique
   image String
   AppUrl String?
+  envId String @default("not-provided")
 }
 
 model UserUser{

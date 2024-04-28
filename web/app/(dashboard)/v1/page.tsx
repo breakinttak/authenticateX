@@ -1,14 +1,13 @@
 "use client"
 import NewApp from "@/_components/newapp"
 import Logout from "@/components/logout/logout"
-import { DropdownMenu } from "@/components/ui/dropdown-menu"
-import { UploadButton } from "@/utils/uploadthing"
-import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
-import { AppWindow, Orbit, Plus, User, User2, UserPlus } from "lucide-react"
+
+import { AppWindow, KeySquareIcon, Orbit, Pen, Plus, User, User2, UserPlus } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { ModeToggle } from "@/components/mode-toggle"
-
+import {NavButton} from "@/components/buttons/leftnavbutton"
+import { Change } from "./@GenralSettings/page"
 // async function reqdata(userId:string){
 //     const res = await fetch("/api/reqdata", {
 //         method:"POST",
@@ -22,7 +21,18 @@ import { ModeToggle } from "@/components/mode-toggle"
 
 // }
 
-async function GETDATA(){
+export const fetchapps = async() => {
+    const res = await fetch("/api/fetch-users" , {
+        method:"POST",
+        body:JSON.stringify({some:"00000"})
+    })
+    
+    return await res.json()
+    
+}
+
+
+export async function GETDATA(){
     const router = useRouter()
     const {name,email,UserDevId} = await (await fetch("/api/get-data")).json()
     if(name == undefined || name == null ){
@@ -43,6 +53,7 @@ async function GETDATA(){
 export default async function Page(){
 
         const router = useRouter()
+        const [windowState , setWindowState]   = useState("GeneralSettings")
         if(GETDATA()==null || GETDATA == undefined){
             return null
         }
@@ -57,20 +68,12 @@ export default async function Page(){
     //     return null
     // }
 
-        const fetchapps = async() => {
-            const res = await fetch("/api/fetch-users" , {
-                method:"POST",
-                body:JSON.stringify({some:"00000"})
-            })
-            
-            return await res.json()
-            
-        }
 
         const res = await fetchapps()
     return(
         <>
-            <div className="w-full h-[70px] flex items-center  dark:bg-zinc-800 bg-zinc-500 ">
+            <div className="w-full h-[70px] flex  items-center  dark:bg-zinc-800 bg-zinc-500 ">
+                {/* <Loader /> */}
                 <p className="left-0 p-[20px] text-2xl dark:text-gray-400 text-gray-100">{data.email}</p>
                     {/* <UploadButton 
                     onClientUploadComplete={()=>{
@@ -115,7 +118,7 @@ export default async function Page(){
                                 onClick={()=>{
                                     router.push("/v1/newApp")
                                 }}
-                                className="w-full  h-[40px] flex dark:bg-gray-800 bg-gray-400 hover:bg-gray-500 text-white  rounded-xl  text-gray-400 hover:text-gray-200 dark:hover:bg-gray-700  justify-center items-center ">
+                                className="w-full  h-[40px] flex dark:bg-gray-800 bg-gray-400 hover:bg-gray-500 rounded-xl  text-gray-400 hover:text-gray-200 dark:hover:bg-gray-700  justify-center items-center ">
                                 <Plus className="mr-[4px]" />
                                 </button>
                                 {/* <NewApp /> */}
@@ -128,19 +131,24 @@ export default async function Page(){
                                 )
                             })} */}
                         </div>
-                        <div className="flex flex-col right-0 w-full h-full">
-                            <div className="ml-[10px]">
-                                
-                            <p className="flex flex-1 p-[7.5px] ">Check users <User className="ml-[20px] " /></p>
-                            <p className="flex flex-1 p-[7.5px] "> Get organizations <Orbit className="ml-[20px]" /> </p>
+                        <div className="flex flex-col right-0 w-full  h-[90vh] bg-[#585858] dark:bg-[#1b1b1b]">
+                           <div className="mt-[10px]">
+                            <div onClick={()=>{setWindowState("GeneralSettings")}}>
+                            <NavButton name={"General settings"} icon={<Pen />} onclick={()=>{}}  />
                             </div>
+                            <div onClick={()=>{setWindowState("EnvironmentKey")}}>
+                           <NavButton name={"Environment keys"} icon={<KeySquareIcon/>} onclick={()=>{}} />
+                           </div>
+                           </div>
                             {/* <p>welcome</p> */}
                         </div>
                     </div>
                 </div>
 
-                <div className="w-full bg-blue-500 h-full  right-0 ">
-                    right section
+                <div className="w-full ml-[5px] h-full  right-0 ">
+                    <div className="h-[88vh] ">
+                            <Change comp={windowState}  />
+                    </div>
                 </div>
             </div>
         </>
