@@ -11,10 +11,11 @@ async function GET() {
             }
         })
 
-        if (res?.name && res.email) {
-            return NextResponse.json(await res, { status: 202 })
+        if (!res?.name || !res.email) {
+            return NextResponse.json({ "bro": "why" }, { status: 503 })
         }
-        return NextResponse.json({ "bro": "why" }, { status: 503 })
+        return NextResponse.json(await res, { status: 202 })
+        
     }
     return NextResponse.json({ "bro": "why" }, { status: 503 })
 

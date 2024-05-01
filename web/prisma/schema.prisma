@@ -26,13 +26,15 @@ model UserDev{
 }
 
 model App{
-  id Int  @default(autoincrement())
+  id Int @id  @default(autoincrement())
   name String
   Useruser UserUser[]
   app UserDev @relation(fields:[AppId],references:[UserDevId])
-  AppId String @unique
+  AppId String 
   image String
   AppUrl String?
+  IdUser String? @unique 
+  envId String @default("not-provided")
 }
 
 model UserUser{
@@ -40,7 +42,7 @@ model UserUser{
   name String
   email String 
   password String
-  app App @relation(fields:[UserUserId],references:[AppId])
+  app App @relation(fields:[UserUserId],references:[IdUser])
   organizations Organizations[]
   jwtToken String?
   UserUserId String @unique

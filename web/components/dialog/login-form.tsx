@@ -41,7 +41,7 @@ export const LoginForm = () => {
         // window.localStorage.setItem("name",user.name)
         // window.localStorage.setItem("email",user.email)
         
-          router.push("/v1")
+          router.push("/v1/newApp")
       }
       
     }

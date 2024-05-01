@@ -15,6 +15,10 @@ export async function POST(req:Request) {
 
         if(DEBUG_MODE) console.log(res);
         
+        if(res.length === 0){
+            return NextResponse.json({data:[]})
+        }
+
         return NextResponse.json(res,{status:200})
     }
     return NextResponse.json({bro:"why"},{status:503})
